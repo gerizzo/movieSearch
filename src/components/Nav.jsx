@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 
 const Nav = () => {
     let Links = [
         {name:"HOME", link:"/"},
-        {name:"MOVIES", link:"/"},
-        {name:"SERIES", link:"/"},
-        {name:"CONTACT", link:"/"}
+        {name:"MOVIES", link:"/movies"},
+        {name:"SERIES", link:"/series"},
+        {name:"CONTACT", link:"/contact"}
     ];
 
     const [open, setOpen] = useState(false)
@@ -37,7 +38,9 @@ const Nav = () => {
                 {
                     Links.map((link) => (
                         <li key={link.name} className='md:ml-8 text-xl md:my-0 my-7'>
-                            <a href={link.link} className='text-gray-800 font-bold hover:text-gray-300 duration-500' >{link.name}</a>
+                            <Link to={link.link} className='text-gray-800 font-bold hover:text-gray-300 duration-500'>
+                                {link.name}
+                            </Link>
                         </li>
                     ))
                 }
